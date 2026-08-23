@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: whosnext-realtime
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm run start:realtime
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: MONGODB_DB
+        value: whosnext
+      - key: MONGODB_URI
+        sync: false
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: METERED_DOMAIN
+        sync: false
+      - key: METERED_API_KEY
+        sync: false
+      - key: TURN_URLS
+        sync: false
+      - key: TURN_USERNAME
+        sync: false
+      - key: TURN_CREDENTIAL
+        sync: false
+
+  - type: web
+    name: whosnext-web
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: VITE_SOCKET_URL
+        fromService:
+          name: whosnext-realtime
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
