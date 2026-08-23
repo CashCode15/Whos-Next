@@ -3,8 +3,8 @@ services:
     name: whosnext-realtime
     runtime: node
     plan: free
-    buildCommand: npm ci
-    startCommand: npm run start:realtime
+    buildCommand: bun install --frozen-lockfile
+    startCommand: bun run start:realtime
     healthCheckPath: /api/health
     envVars:
       - key: NODE_VERSION
@@ -30,8 +30,8 @@ services:
     name: whosnext-web
     runtime: node
     plan: free
-    buildCommand: npm ci && npm run build
-    startCommand: npm start
+    buildCommand: bun install --frozen-lockfile && bun run build
+    startCommand: bun start
     envVars:
       - key: NODE_VERSION
         value: "22"
