@@ -40,7 +40,7 @@ function SettingsPage() {
   return (
     <main className="mx-auto max-w-2xl px-5 py-10">
       <Button variant="ghost" size="sm" asChild className="mb-6">
-        <Link to="/">
+        <Link to="/chat">
           <ArrowLeft className="mr-1 size-4" /> Back
         </Link>
       </Button>

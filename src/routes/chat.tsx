@@ -74,7 +74,7 @@ function ChatRoom() {
   const connected = loop.state === "connected";
 
   return (
-    <div className="flex h-screen flex-col bg-background">
+    <div className="flex min-h-screen flex-col bg-background lg:h-screen">
       <header className="flex items-center gap-3 border-b border-border px-4 py-3">
         <Link to="/" className="font-display text-lg text-brand">
           WHO&apos;S NEXT?
@@ -110,7 +110,7 @@ function ChatRoom() {
 
       <div className="flex min-h-0 flex-1 flex-col gap-3 p-3 lg:flex-row">
         <div className="flex min-h-0 flex-1 flex-col gap-3">
-          <div className="min-h-0 flex-1">
+          <div className="h-[min(58vh,32rem)] min-h-[22rem] shrink-0 lg:min-h-0 lg:flex-1">
             <VideoStage
               state={loop.state}
               peer={loop.peer}

@@ -45,7 +45,7 @@ export function MatchLoader({ state, peerName, live, online }: Props) {
   const locking = state === "connecting" || state === "match_found";
 
   return (
-    <div className="relative z-10 flex max-w-md flex-col items-center px-6 text-center">
+    <div className="relative z-10 flex w-full max-w-md flex-col items-center px-4 text-center sm:px-6">
       <span
         className={cn(
           "mb-5 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-semibold tracking-wide",
@@ -109,7 +109,9 @@ export function MatchLoader({ state, peerName, live, online }: Props) {
         </div>
       </div>
 
-      <p className="font-display text-3xl tracking-tight sm:text-4xl">{copy.title}</p>
+      <p className="max-w-full wrap-break-word font-display text-2xl leading-tight tracking-tight sm:text-4xl">
+        {copy.title}
+      </p>
       <p className="mt-2 text-sm text-muted-foreground">{copy.sub}</p>
 
       <button

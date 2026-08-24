@@ -1,11 +1,11 @@
 import {
   Camera,
   CameraOff,
-  Flag,
+  // Flag,
   Mic,
   MicOff,
   Settings,
-  ShieldBan,
+  // ShieldBan,
   SkipForward,
   SwitchCamera,
 } from "lucide-react";
@@ -51,12 +51,14 @@ export function VideoControls({
           <Settings className="size-4" />
         </Link>
       </Button>
+      {/*
       <Button size="icon" variant="secondary" onClick={onReport} disabled={!canModerate} title="Report">
         <Flag className="size-4" />
       </Button>
       <Button size="icon" variant="secondary" onClick={onBlock} disabled={!canModerate} title="Block">
         <ShieldBan className="size-4" />
       </Button>
+      */}
 
       <Button className="ml-auto font-display" onClick={onNext}>
         Who&apos;s Next? <SkipForward className="ml-1 size-4" />
