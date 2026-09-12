@@ -266,7 +266,25 @@ function Landing() {
           18+ only. Be kind — report &amp; block are one tap away.
         </p>
 
-        <nav className="mt-4 flex justify-center gap-5 text-xs text-muted-foreground">
+        <nav className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
+          <Link to="/about" className="transition-colors duration-200 hover:text-foreground">
+            About
+          </Link>
+          <Link
+            to="/how-it-works"
+            className="transition-colors duration-200 hover:text-foreground"
+          >
+            How it works
+          </Link>
+          <Link
+            to="/community-guidelines"
+            className="transition-colors duration-200 hover:text-foreground"
+          >
+            Community Guidelines
+          </Link>
+          <Link to="/contact" className="transition-colors duration-200 hover:text-foreground">
+            Contact
+          </Link>
           <Link
             to="/settings"
             className="transition-colors duration-200 hover:text-foreground"

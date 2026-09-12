@@ -1,6 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { createFileRoute } from "@tanstack/react-router";
+import { InfoSection, PublicPage } from "@/components/whosnext/PublicPage";
 
 export const Route = createFileRoute("/legal/privacy")({
   head: () => ({
@@ -23,32 +22,22 @@ export const Route = createFileRoute("/legal/privacy")({
 
 function Privacy() {
   return (
-    <main className="mx-auto max-w-2xl px-5 py-10">
-      <Button variant="ghost" size="sm" asChild className="mb-6">
-        <Link to="/">
-          <ArrowLeft className="mr-1 size-4" /> Back
-        </Link>
-      </Button>
-      <h1 className="font-display text-3xl">Privacy Policy</h1>
-      <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted-foreground">
-        <p>
-          Video and audio travel directly between you and the other person over WebRTC,
-          with a relay only as a fallback. We do not record calls.
-        </p>
-        <p>
-          Your identity is an internal random identifier. Nicknames are display-only and
-          are not verified or unique.
-        </p>
-        <p>
-          Chat messages exist only for the duration of a conversation and are deleted when
-          it ends, unless retained for a specific report or moderation review.
-        </p>
-        <p>
-          We never show your IP address to other users. Coarse region may be shown if you
-          enable it in preferences.
-        </p>
-        <p>Theme and match preferences are stored on your device.</p>
+    <PublicPage
+      eyebrow="Your data, plainly stated"
+      title="Privacy Policy"
+      intro="Who's Next? is built around short-lived, guest-first conversations. Here's what is shared, stored, and visible."
+    >
+      <div className="space-y-2">
+        <InfoSection title="Video, audio, and identity">
+          <p>Video and audio travel directly between you and the other person over WebRTC, with a relay only as a fallback. We do not record calls. Your identity is an internal random identifier; nicknames are display-only and are not verified or unique.</p>
+        </InfoSection>
+        <InfoSection title="Chat and reports">
+          <p>Chat messages exist for the duration of a conversation and are deleted when it ends, unless information is retained for a specific report or moderation review.</p>
+        </InfoSection>
+        <InfoSection title="Network and preferences">
+          <p>We never show your IP address to other users. Coarse region may be shown only if you enable it in preferences. Theme and match preferences are stored on your device.</p>
+        </InfoSection>
       </div>
-    </main>
+    </PublicPage>
   );
 }

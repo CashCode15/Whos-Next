@@ -14,6 +14,10 @@ import { Route as ChatRouteImport } from './routes/chat'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as LegalPrivacyRouteImport } from './routes/legal.privacy'
 import { Route as LegalTermsRouteImport } from './routes/legal.terms'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CommunityGuidelinesRouteImport } from './routes/community-guidelines'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +44,26 @@ const LegalTermsRoute = LegalTermsRouteImport.update({
   path: '/legal/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityGuidelinesRoute = CommunityGuidelinesRouteImport.update({
+  id: '/community-guidelines',
+  path: '/community-guidelines',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +71,10 @@ export interface FileRoutesByFullPath {
   '/settings': typeof SettingsRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/terms': typeof LegalTermsRoute
+  '/about': typeof AboutRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/contact': typeof ContactRoute
+  '/community-guidelines': typeof CommunityGuidelinesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +82,10 @@ export interface FileRoutesByTo {
   '/settings': typeof SettingsRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/terms': typeof LegalTermsRoute
+  '/about': typeof AboutRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/contact': typeof ContactRoute
+  '/community-guidelines': typeof CommunityGuidelinesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,14 +94,18 @@ export interface FileRoutesById {
   '/settings': typeof SettingsRoute
   '/legal/privacy': typeof LegalPrivacyRoute
   '/legal/terms': typeof LegalTermsRoute
+  '/about': typeof AboutRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/contact': typeof ContactRoute
+  '/community-guidelines': typeof CommunityGuidelinesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/chat' | '/settings' | '/legal/privacy' | '/legal/terms'
+  fullPaths: '/' | '/chat' | '/settings' | '/legal/privacy' | '/legal/terms' | '/about' | '/how-it-works' | '/contact' | '/community-guidelines'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/chat' | '/settings' | '/legal/privacy' | '/legal/terms'
+  to: '/' | '/chat' | '/settings' | '/legal/privacy' | '/legal/terms' | '/about' | '/how-it-works' | '/contact' | '/community-guidelines'
   id:
-    '__root__' | '/' | '/chat' | '/settings' | '/legal/privacy' | '/legal/terms'
+    '__root__' | '/' | '/chat' | '/settings' | '/legal/privacy' | '/legal/terms' | '/about' | '/how-it-works' | '/contact' | '/community-guidelines'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -78,6 +114,10 @@ export interface RootRouteChildren {
   SettingsRoute: typeof SettingsRoute
   LegalPrivacyRoute: typeof LegalPrivacyRoute
   LegalTermsRoute: typeof LegalTermsRoute
+  AboutRoute: typeof AboutRoute
+  HowItWorksRoute: typeof HowItWorksRoute
+  ContactRoute: typeof ContactRoute
+  CommunityGuidelinesRoute: typeof CommunityGuidelinesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -117,6 +157,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LegalTermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community-guidelines': {
+      id: '/community-guidelines'
+      path: '/community-guidelines'
+      fullPath: '/community-guidelines'
+      preLoaderRoute: typeof CommunityGuidelinesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -126,6 +194,10 @@ const rootRouteChildren: RootRouteChildren = {
   SettingsRoute: SettingsRoute,
   LegalPrivacyRoute: LegalPrivacyRoute,
   LegalTermsRoute: LegalTermsRoute,
+  AboutRoute: AboutRoute,
+  HowItWorksRoute: HowItWorksRoute,
+  ContactRoute: ContactRoute,
+  CommunityGuidelinesRoute: CommunityGuidelinesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

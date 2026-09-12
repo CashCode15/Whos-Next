@@ -1,6 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { createFileRoute } from "@tanstack/react-router";
+import { InfoSection, PublicPage } from "@/components/whosnext/PublicPage";
 
 export const Route = createFileRoute("/legal/terms")({
   head: () => ({
@@ -22,29 +21,22 @@ export const Route = createFileRoute("/legal/terms")({
 
 function Terms() {
   return (
-    <main className="mx-auto max-w-2xl px-5 py-10">
-      <Button variant="ghost" size="sm" asChild className="mb-6">
-        <Link to="/">
-          <ArrowLeft className="mr-1 size-4" /> Back
-        </Link>
-      </Button>
-      <h1 className="font-display text-3xl">Terms of Service</h1>
-      <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted-foreground">
-        <p>You must be 18 or older to use Who&apos;s Next?.</p>
-        <p>
-          Nudity, sexual content, harassment, hate speech, threats, spam and advertising
-          are not allowed. Sessions may be ended and accounts banned for violations.
-        </p>
-        <p>
-          Do not record or redistribute another person&apos;s video or audio without their
-          consent.
-        </p>
-        <p>
-          Reports are reviewed by moderation. Repeat offenders receive temporary or
-          permanent bans.
-        </p>
-        <p>The service is provided as-is while in active development.</p>
+    <PublicPage
+      eyebrow="Before you connect"
+      title="Terms of Service"
+      intro="By using Who's Next?, you agree to use it lawfully, respectfully, and only if you are 18 or older."
+    >
+      <div className="space-y-2">
+        <InfoSection title="Age and acceptable use">
+          <p>You must be 18 or older to use Who&apos;s Next?. Nudity, sexual content, harassment, hate speech, threats, spam, advertising, impersonation, and illegal activity are not allowed. Sessions may be ended and access may be restricted for violations.</p>
+        </InfoSection>
+        <InfoSection title="Consent and reporting">
+          <p>Do not record or redistribute another person&apos;s video, audio, or messages without their consent. Reports are reviewed by moderation. Repeat offenders may receive temporary or permanent bans.</p>
+        </InfoSection>
+        <InfoSection title="Service availability">
+          <p>The service is provided as-is while in active development. Connections can fail, and we may change or pause features as the product evolves.</p>
+        </InfoSection>
       </div>
-    </main>
+    </PublicPage>
   );
 }
